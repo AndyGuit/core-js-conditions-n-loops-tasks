@@ -446,8 +446,8 @@ function rotateMatrix(matrix) {
  *  [2, 9, 5, 9]    => [2, 5, 9, 9]
  *  [-2, 9, 5, -3]  => [-3, -2, 5, 9]
  */
-function sortByAsc(/* arr */) {
-  throw new Error('Not implemented');
+function sortByAsc(arr) {
+  return arr.sort((a, b) => a - b);
 }
 
 /**
@@ -467,8 +467,34 @@ function sortByAsc(/* arr */) {
  *  '012345', 3 => '024135' => '043215' => '031425'
  *  'qwerty', 3 => 'qetwry' => 'qtrewy' => 'qrwtey'
  */
-function shuffleChar(/* str, iterations */) {
-  throw new Error('Not implemented');
+
+function shuffling(str) {
+  let left = '';
+  let right = '';
+
+  for (let i = 0; i < str.length; i += 1) {
+    if (i % 2 === 0) {
+      left += str[i];
+    } else {
+      right += str[i];
+    }
+  }
+
+  return left + right;
+}
+
+function shuffleChar(str, iterations) {
+  if (str.length === 0 || iterations === 0) {
+    return str;
+  }
+
+  let shuffledStr = shuffling(str);
+
+  for (let i = 1; i < iterations; i += 1) {
+    shuffledStr = shuffling(shuffledStr);
+  }
+
+  return shuffledStr;
 }
 
 /**
